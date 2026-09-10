@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>玛雅论坛主页-中文社区交流与话题讨论入口指南</title>
+<meta name="description" content="玛雅论坛主页是中文网络社区交流平台的信息入口，提供版块导航、热门话题、新人指引、社区规则与常见问题说明，帮助用户快速了解论坛结构与参与方式。">
+<meta name="keywords" content="玛雅论坛主页,玛雅论坛,中文社区,论坛导航,话题讨论,社区交流">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+  :root{
+    --ink:#1d2333;
+    --ink-soft:#4a5468;
+    --line:#e3e7ef;
+    --bg:#f5f6fa;
+    --card:#ffffff;
+    --brand:#1f6f68;
+    --brand-2:#2f9c8f;
+    --accent:#c9822f;
+    --radius:14px;
+    --shadow:0 6px 22px rgba(29,35,51,.07);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.75;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{width:min(1180px,92%);margin:0 auto;}
+
+  /* ---------- 顶部 ---------- */
+  .topbar{
+    background:#141a26;
+    color:#c6cddb;
+    font-size:13px;
+  }
+  .topbar .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    gap:12px;padding:8px 0;flex-wrap:wrap;
+  }
+  .topbar span{letter-spacing:.4px;}
+  .topbar nav{display:flex;gap:16px;flex-wrap:wrap;}
+  .topbar nav a{color:#c6cddb;transition:color .2s;}
+  .topbar nav a:hover{color:#fff;}
+
+  header.site{
+    background:linear-gradient(135deg,#1f6f68 0%,#2f9c8f 58%,#57bfae 100%);
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+  }
+  header.site::after{
+    content:"";
+    position:absolute;right:-90px;top:-90px;
+    width:320px;height:320px;border-radius:50%;
+    background:rgba(255,255,255,.09);
+  }
+  .masthead{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:20px;padding:22px 0 18px;flex-wrap:wrap;position:relative;z-index:2;
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand .mark{
+    width:46px;height:46px;border-radius:12px;
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.35);
+    display:grid;place-items:center;
+    font-weight:700;font-size:19px;letter-spacing:1px;
+  }
+  .brand h1{font-size:21px;font-weight:700;letter-spacing:.5px;}
+  .brand p{font-size:12.5px;opacity:.85;font-weight:400;letter-spacing:.6px;}
+  .mast-tools{display:flex;gap:10px;flex-wrap:wrap;}
+  .mast-tools a{
+    font-size:13.5px;padding:8px 16px;border-radius:999px;
+    border:1px solid rgba(255,255,255,.45);
+    transition:background .2s,color .2s;
+  }
+  .mast-tools a:hover{background:#fff;color:var(--brand);}
+  .mast-tools a.solid{background:#fff;color:var(--brand);font-weight:600;}
+  .mast-tools a.solid:hover{background:rgba(255,255,255,.85);}
+
+  /* 主导航 */
+  nav.mainnav{
+    background:rgba(0,0,0,.16);
+    border-top:1px solid rgba(255,255,255,.15);
+    position:relative;z-index:2;
+  }
+  nav.mainnav ul{
+    display:flex;gap:4px;list-style:none;
+    overflow-x:auto;padding:0;
+  }
+  nav.mainnav a{
+    display:block;padding:13px 18px;font-size:14.5px;
+    white-space:nowrap;border-bottom:3px solid transparent;
+    transition:border-color .2s,background .2s;
+  }
+  nav.mainnav a:hover,nav.mainnav a.active{
+    border-bottom-color:#ffd79a;background:rgba(255,255,255,.08);
+  }
+
+  /* ---------- 首屏 ---------- */
+  .hero{padding:38px 0 44px;position:relative;z-index:2;color:#fff;}
+  .hero-grid{
+    display:grid;grid-template-columns:1.35fr .95fr;gap:34px;align-items:start;
+  }
+  .hero h2{font-size:30px;line-height:1.4;font-weight:700;letter-spacing:.5px;margin-bottom:14px;}
+  .hero p.lead{font-size:15.5px;opacity:.93;max-width:640px;}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px;}
+  .hero .cta a{
+    padding:11px 24px;border-radius:8px;font-size:14.5px;font-weight:600;
+    background:#fff;color:var(--brand);box-shadow:0 6px 16px rgba(0,0,0,.12);
+    transition:transform .18s;
+  }
+  .hero .cta a.ghost{
+    background:transparent;color:#fff;border:1px solid rgba(255,255,255,.6);box-shadow:none;
+  }
+  .hero .cta a:hover{transform:translateY(-2px);}
+
+  .hero-side{
+    background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.28);
+    border-radius:var(--radius);
+    padding:20px 22px;
+    backdrop-filter:blur(3px);
+  }
+  .hero-side h3{font-size:15px;margin-bottom:12px;letter-spacing:.5px;}
+  .hero-side ul{list-style:none;display:grid;gap:9px;}
+  .hero-side li{
+    display:flex;justify-content:space-between;gap:10px;
+    font-size:13.5px;padding-bottom:9px;
+    border-bottom:1px dashed rgba(255,255,255,.25);
+  }
+  .hero-side li:last-child{border-bottom:none;padding-bottom:0;}
+  .hero-side li b{font-weight:600;opacity:.95;}
+  .hero-side li span{opacity:.8;}
+
+  /* ---------- 通用区块 ---------- */
+  main{padding:44px 0 10px;}
+  section.block{margin-bottom:52px;}
+  .sec-head{
+    display:flex;align-items:flex-end;justify-content:space-between;
+    gap:16px;margin-bottom:20px;flex-wrap:wrap;
+  }
+  .sec-head h2{
+    font-size:21px;font-weight:700;letter-spacing:.4px;position:relative;
+    padding-left:14px;
+  }
+  .sec-head h2::before{
+    content:"";position:absolute;left:0;top:6px;bottom:6px;width:4px;
+    border-radius:3px;background:linear-gradient(180deg,var(--brand),var(--brand-2));
+  }
+  .sec-head p{font-size:13.5px;color:var(--ink-soft);}
+  .sec-head a.more{font-size:13.5px;color:var(--brand);font-weight:600;}
+  .sec-head a.more:hover{text-decoration:underline;}
+
+  /* 版块卡片 */
+  .board-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+  }
+  .board{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:20px 20px 18px;
+    box-shadow:var(--shadow);transition:transform .2s,border-color .2s;
+    display:flex;flex-direction:column;
+  }
+  .board:hover{transform:translateY(-3px);border-color:#c9dedb;}
+  .board .tag{
+    display:inline-block;font-size:11.5px;letter-spacing:.6px;
+    color:var(--brand);background:#e8f4f2;border-radius:5px;
+    padding:2px 9px;margin-bottom:11px;font-weight:600;
+  }
+  .board h3{font-size:16.5px;margin-bottom:8px;}
+  .board p{font-size:13.8px;color:var(--ink-soft);flex:1;}
+  .board .meta{
+    margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);
+    font-size:12.5px;color:#8b93a5;display:flex;justify-content:space-between;gap:10px;
+  }
+
+  /* 热门话题 + 侧栏 */
+  .two-col{display:grid;grid-template-columns:1.6fr .95fr;gap:26px;align-items:start;}
+
+  .topic-list{display:grid;gap:12px;}
+  .topic{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;display:flex;gap:16px;align-items:flex-start;
+    transition:border-color .2s,box-shadow .2s;
+  }
+  .topic:hover{border-color:#c9dedb;box-shadow:var(--shadow);}
+  .topic .no{
+    flex:0 0 34px;height:34px;border-radius:9px;
+    display:grid;place-items:center;font-weight:700;font-size:14px;
+    background:#eef1f6;color:#6d7688;
+  }
+  .topic:nth-child(1) .no{background:#fdeede;color:#b8721f;}
+  .topic:nth-child(2) .no{background:#e8f4f2;color:#1f6f68;}
+  .topic:nth-child(3) .no{background:#eceefb;color:#4b57a8;}
+  .topic .body{flex:1;}
+  .topic h3{font-size:15.5px;margin-bottom:5px;}
+  .topic p{font-size:13.5px;color:var(--ink-soft);}
+  .topic .info{
+    margin-top:9px;font-size:12.5px;color:#8b93a5;
+    display:flex;gap:14px;flex-wrap:wrap;
+  }
+
+  aside .panel{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:20px;margin-bottom:20px;
+    box-shadow:var(--shadow);
+  }
+  aside .panel h3{
+    font-size:15.5px;margin-bottom:13px;padding-bottom:10px;
+    border-bottom:1px solid var(--line);
+  }
+  aside .panel ul{list-style:none;display:grid;gap:10px;}
+  aside .panel li{font-size:13.8px;color:var(--ink-soft);display:flex;gap:9px;}
+  aside .panel li b{color:var(--brand);font-weight:600;}
+  .rule-list li{line-height:1.7;}
+  .rule-list li::before{
+    content:"·";color:var(--accent);font-weight:700;font-size:18px;line-height:1;
+  }
+
+  /* 新人指引步骤 */
+  .steps{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  }
+  .step{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px;position:relative;box-shadow:var(--shadow);
+  }
+  .step .num{
+    width:30px;height:30px;border-radius:50%;
+    background:linear-gradient(135deg,var(--brand),var(--brand-2));
+    color:#fff;display:grid;place-items:center;font-size:14px;font-weight:700;
+    margin-bottom:12px;
+  }
+  .step h3{font-size:15.5px;margin-bottom:7px;}
+  .step p{font-size:13.5px;color:var(--ink-soft);}
+
+  /* 指南正文 */
+  .guide{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:30px 32px;box-shadow:var(--shadow);
+  }
+  .guide h3{font-size:17px;margin:24px 0 10px;}
+  .guide h3:first-child{margin-top:0;}
+  .guide p{font-size:14.5px;color:var(--ink-soft);margin-bottom:12px;}
+  .guide ul{margin:0 0 14px 20px;display:grid;gap:7px;}
+  .guide li{font-size:14.3px;color:var(--ink-soft);}
+
+  /* FAQ */
+  .faq{display:grid;gap:12px;}
+  details{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:16px 20px;box-shadow:var(--shadow);
+  }
+  details[open]{border-color:#c9dedb;}
+  summary{
+    font-size:15px;font-weight:600;cursor:pointer;list-style:none;
+    display:flex;justify-content:space-between;gap:14px;align-items:center;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{
+    content:"+";color:var(--brand);font-size:19px;font-weight:600;line-height:1;
+  }
+  details[open] summary::after{content:"−";}
+  details p{
+    font-size:14px;color:var(--ink-soft);margin-top:11px;
+    padding-top:11px;border-top:1px dashed var(--line);
+  }
+
+  /* 页脚 */
+  footer.site{
+    margin-top:50px;background:#141a26;color:#9aa4b8;
+    padding:40px 0 22px;font-size:13.5px;
+  }
+  .foot-grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:26px;
+  }
+  footer.site h4{color:#e7ecf5;font-size:14.5px;margin-bottom:13px;}
+  footer.site ul{list-style:none;display:grid;gap:8px;}
+  footer.site a{color:#9aa4b8;transition:color .2s;}
+  footer.site a:hover{color:#fff;}
+  footer.site p{line-height:1.8;}
+  .foot-bottom{
+    margin-top:28px;padding-top:16px;border-top:1px solid #262e3d;
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    font-size:12.8px;color:#6f7a8e;
+  }
+
+  /* 响应式 */
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .board-grid{grid-template-columns:repeat(2,1fr);}
+    .two-col{grid-template-columns:1fr;}
+    .steps{grid-template-columns:repeat(2,1fr);}
+    .foot-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:640px){
+    body{font-size:15px;}
+    .hero h2{font-size:23px;}
+    .masthead{padding:18px 0 14px;}
+    .brand h1{font-size:18px;}
+    .board-grid{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+    .guide{padding:22px 20px;}
+    .sec-head h2{font-size:18.5px;}
+    nav.mainnav a{padding:12px 14px;font-size:13.5px;}
+    main{padding:32px 0 6px;}
+    section.block{margin-bottom:40px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>玛雅论坛 · 中文社区话题交流入口</span>
+    <nav>
+      <a href="#boards">版块导航</a>
+      <a href="#topics">热门话题</a>
+      <a href="#guide">新人指引</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <div class="masthead">
+      <div class="brand">
+        <div class="mark">玛雅</div>
+        <div>
+          <h1>玛雅论坛主页</h1>
+          <p>中文社区 · 话题讨论与经验交流的信息入口</p>
+        </div>
+      </div>
+      <div class="mast-tools">
+        <a href="#guide" class="solid">新人入门</a>
+        <a href="#rules">社区规则</a>
+        <a href="#faq">帮助中心</a>
+      </div>
+    </div>
+  </div>
+  <nav class="mainnav">
+    <div class="wrap">
+      <ul>
+        <li><a href="#boards" class="active">版块总览</a></li>
+        <li><a href="#topics">热门话题</a></li>
+        <li><a href="#guide">新人指引</a></li>
+        <li><a href="#rules">社区规则</a></li>
+        <li><a href="#tips">使用技巧</a></li>
+        <li><a href="#faq">常见问题</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="wrap">
+    <div class="hero">
+      <div class="hero-grid">
+        <div>
+          <h2>一个以话题讨论为核心的中文社区主页</h2>
+          <p class="lead">
+            玛雅论坛主页把版块入口、热门讨论、新人指引和社区规则集中在一个页面上。
+            如果你第一次接触这个社区，或者只是想快速找到感兴趣的讨论区，可以从下方版块导航开始，
+            再结合热门话题了解当前社区里大家在聊什么。
+          </p>
+          <div class="cta">
+            <a href="#boards">浏览全部版块</a>
+            <a href="#guide" class="ghost">查看新人指引</a>
+          </div>
+        </div>
+        <div class="hero-side">
+          <h3>主页速览</h3>
+          <ul>
+            <li><b>版块导航</b><span>按兴趣分类</span></li>
+            <li><b>热门话题</b><span>近期讨论方向</span></li>
+            <li><b>新人指引</b><span>从注册到发帖</span></li>
+            <li><b>社区规则</b><span>发言与礼仪</span></li>
+            <li><b>帮助中心</b><span>常见问题解答</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- 版块总览 -->
+  <section class="block" id="boards">
+    <div class="sec-head">
+      <h2>版块总览</h2>
+      <p>按兴趣方向划分讨论区，进入对应版块可以查看该方向的帖子与交流内容。</p>
+    </div>
+    <div class="board-grid">
+      <article class="board">
+        <span class="tag">综合交流</span>
+        <h3>社区综合区</h3>
+        <p>适合发布日常见闻、生活记录和跨领域话题。新用户常在这里完成第一次发帖，氛围相对宽松，也便于熟悉论坛的排版与互动方式。</p>
+        <div class="meta"><span>适合：日常交流</span><span>发帖门槛低</span></div>
+      </article>
+      <article class="board">
+        <span class="tag">兴趣话题</span>
+        <h3>兴趣讨论区</h3>
+        <p>围绕阅读、影音、游戏、手工、旅行等兴趣方向展开讨论。帖子通常带有较强的个人经验色彩，适合寻找同好并交换看法。</p>
+        <div class="meta"><span>适合：兴趣同好</span><span>话题多样</span></div>
+      </article>
+      <article class="board">
+        <span class="tag">经验分享</span>
+        <h3>经验与教程区</h3>
+        <p>用于整理可复用的方法、步骤与踩坑记录。相比闲聊，这里的帖子更强调结构清晰、信息完整，方便后来者按需查阅。</p>
+        <div class="meta"><span>适合：方法整理</span><span>鼓励原创</span></div>
+      </article>
+      <article class="board">
+        <span class="tag">问答互助</span>
+        <h3>提问与求助区</h3>
+        <p>遇到具体问题时可以在这里发起提问。描述越具体、背景越清楚，越容易得到有针对性的回应，也方便其他人日后检索同类问题。</p>
+        <div class="meta"><span>适合：具体问题</span><span>互助导向</span></div>
+      </article>
+      <article class="board">
+        <span class="tag">资源整理</span>
+        <h3>资料整理区</h3>
+        <p>集中存放用户自发整理的清单、索引与参考信息。内容以公开可查的资料为主，转载时建议注明来源，便于他人核对。</p>
+        <div class="meta"><span>适合：索引清单</span><span>注明来源</span></div>
+      </article>
+      <article class="board">
+        <span class="tag">站务公告</span>
+        <h3>站务与反馈区</h3>
+        <p>发布社区公告、规则调整说明，并接收用户对版块设置、功能使用方面的反馈。涉及账号或内容处理的问题，一般在此说明。</p>
+        <div class="meta"><span>适合：公告反馈</span><span>官方信息</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 热门话题 + 侧栏 -->
+  <section class="block" id="topics">
+    <div class="sec-head">
+      <h2>热门话题方向</h2>
+      <a href="#guide" class="more">了解如何参与讨论 →</a>
+    </div>
+    <div class="two-col">
+      <div class="topic-list">
+        <article class="topic">
+          <div class="no">01</div>
+          <div class="body">
+            <h3>新人如何快速融入社区讨论</h3>
+            <p>从浏览版块、阅读置顶帖到完成第一次回复，是多数新用户共同的起点。先观察再发言，往往比直接开帖更容易获得回应。</p>
+            <div class="info"><span>综合交流</span><span>适合新用户</span></div>
+          </div>
+        </article>
+        <article class="topic">
+          <div class="no">02</div>
+          <div class="body">
+            <h3>怎样把一个问题描述清楚</h3>
+            <p>交代背景、说明已尝试的方法、写清期望结果，是提问帖的三个基本要素。信息完整的提问通常能显著减少来回追问。</p>
+            <div class="info"><span>问答互助</span><span>提问技巧</span></div>
+          </div>
+        </article>
+        <article class="topic">
+          <div class="no">03</div>
+          <div class="body">
+            <h3>长期更新的帖子怎么组织内容</h3>
+            <p>把长帖拆成章节、在开头放目录、定期在末尾补充更新记录，是不少用户采用的整理方式，也方便读者按需跳读。</p>
+            <div class="info"><span>经验分享</span><span>排版建议</span></div>
+          </div>
+        </article>
+        <article class="topic">
+          <div class="no">04</div>
+          <div class="body">
+            <h3>讨论中如何保持理性与礼貌</h3>
+            <p>对事不对人、引用对方原话再回应、避免情绪化措辞，是社区里被反复提到的沟通习惯。观点不同并不影响交流继续。</p>
+            <div class="info"><span>社区规则</span><span>交流礼仪</span></div>
+          </div>
+        </article>
+      </div>
+
+      <aside>
+        <div class="panel">
+          <h3>社区小贴士</h3>
+          <ul>
+            <li><b>先看置顶</b>每个版块顶部的置顶帖通常包含该版规则与常见问题。</li>
+            <li><b>善用搜索</b>发帖前先检索关键词，可能已有类似讨论。</li>
+            <li><b>标题具体</b>标题写清主题，比“求助”“在线等”更容易被点开。</li>
+            <li><b>注意隐私</b>发帖时避免暴露真实姓名、联系方式等个人信息。</li>
+          </ul>
+        </div>
+        <div class="panel" id="rules">
+          <h3>社区基本规则</h3>
+          <ul class="rule-list">
+            <li>不发布违法违规及侵权内容。</li>
+            <li>不进行人身攻击与恶意刷屏。</li>
+            <li>转载内容注明来源，尊重原作者。</li>
+            <li>广告与推广信息请发布在指定区域。</li>
+            <li>遇到争议可向版主反馈，不自行争吵。</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 新人指引 -->
+  <section class="block" id="guide">
+    <div class="sec-head">
+      <h2>新人指引：四步开始参与</h2>
+      <p>不熟悉论坛结构时，可以按下面的顺序逐步上手。</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>浏览版块</h3>
+        <p>先花点时间浏览版块列表，找到与自己兴趣或问题最接近的讨论区。</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>阅读置顶</h3>
+        <p>进入版块后先看置顶帖与规则说明，了解该版的内容范围和发帖要求。</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>尝试回复</h3>
+        <p>从回复他人帖子开始，比直接开新帖更容易熟悉社区的互动节奏。</p>
+      </div>
+      <div class="step">
+        <div class="num">4</div>
+        <h3>发布主题</h3>
+        <p>确认话题未被重复讨论后，用清晰的标题和完整的正文发布自己的主题。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 使用指南正文 -->
+  <section class="block" id="tips">
+    <div class="sec-head">
+      <h2>主页使用与内容参与指南</h2>
+      <p>关于论坛主页功能、发帖习惯与信息判断的一些说明。</p>
+    </div>
+    <div class="guide">
+      <h3>玛雅论坛主页主要提供什么</h3>
+      <p>
+        论坛主页承担的是“入口”角色：把分散在各个版块里的讨论按主题聚合起来，方便用户在不熟悉站内结构时快速定位。
+        通常一个论坛主页会包含版块分类、近期受到关注的讨论、站务公告以及新人说明等部分。
+        对访问者来说，主页的价值不在于内容最多，而在于能否用较少的点击找到想看的方向。
+      </p>
+
+      <h3>如何选择适合自己的版块</h3>
+      <p>
+        版块划分一般按照话题领域和内容形式两条线索。前者如兴趣、生活、技术等方向，后者如提问、分享、公告等类型。
+        选择版块时可以问自己两个问题：我想讨论的内容属于哪个领域？我这次是想提问、分享还是记录？
+        把这两个问题想清楚，通常就能找到相对合适的发帖位置。
+      </p>
+      <ul>
+        <li>内容偏经验总结，优先选择分享或教程类版块；</li>
+        <li>内容偏具体问题，优先选择问答互助类版块；</li>
+        <li>内容偏通知或规则说明，优先选择站务公告类版块；</li>
+        <li>不确定归属时，可先在综合区发帖，或向版主咨询。</li>
+      </ul>
+
+      <h3>发帖前的几个准备动作</h3>
+      <p>
+        先搜索、再发帖，是社区里被反复强调的习惯。同一个问题可能已经有人讨论过，检索后既能节省自己的时间，
+        也能避免重复内容分散讨论。此外，把标题写具体、把背景写完整，会直接影响帖子的回复质量。
+        如果涉及他人内容，转载时注明来源既是对原作者的尊重，也方便读者自行核对。
+      </p>
+
+      <h3>如何看待社区里的信息</h3>
+      <p>
+        论坛内容多来自用户个人经验，具有一定的参考价值，但不等于权威结论。
+        涉及健康、财务、法律等专业领域的问题，建议以专业机构和官方渠道的信息为准。
+        对明显带有推销倾向或来源不明的说法，保持基本的审慎态度会更稳妥。
+      </p>
+
+      <h3>长期参与的建议</h3>
+      <p>
+        社区氛围由每一位参与者共同塑造。保持稳定的发言习惯、认真回复他人、遇到分歧时先理解对方的意思，
+        这些看似普通的做法，往往比刻意追求“活跃度”更能带来良好的交流体验。
+        如果对版块设置或功能使用有建议，可以通过站务反馈区提出。
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="faq">
+    <div class="sec-head">
+      <h2>常见问题</h2>
+      <p>整理了一些访问者较常提出的疑问。</p>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>玛雅论坛主页可以直接发帖吗？</summary>
+        <p>主页主要用于版块导航与内容聚合，实际发帖一般需要进入对应版块后操作。建议先阅读该版块的置顶说明，了解内容范围与格式要求，再发布主题。</p>
+      </details>
+      <details>
+        <summary>第一次发帖应该注意什么？</summary>
+        <p>标题写清主题、正文交代背景与目的、避免在帖子中暴露个人隐私信息，是三个基本要点。如果内容较长，可以分段并加上小标题，方便他人阅读。</p>
+      </details>
+      <details>
+        <summary>帖子发错版块怎么办？</summary>
+        <p>可以联系该版块版主说明情况，请求协助移动或删除。多数社区对新手发错版块持理解态度，及时沟通即可，不必重复发帖。</p>
+      </details>
+      <details>
+        <summary>为什么有些讨论看不到完整内容？</summary>
+        <p>部分版块可能设有访问条件，例如需要登录或达到一定的参与程度。具体规则以站内公告和版块说明为准，不同版块之间可能存在差异。</p>
+      </details>
+      <details>
+        <summary>遇到不友善的回复该怎么处理？</summary>
+        <p>建议避免在帖内直接争执，可通过举报或私信版主的方式反馈，并保留相关截图。由管理人员依据社区规则判断和处理，通常比自行争论更有效。</p>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>玛雅论坛主页</h4>
+        <p>面向中文用户的社区话题交流入口，聚合版块导航、热门讨论、新人指引与社区规则，帮助访问者更快找到感兴趣的讨论方向。</p>
+      </div>
+      <div>
+        <h4>版块入口</h4>
+        <ul>
+          <li><a href="#boards">社区综合区</a></li>
+          <li><a href="#boards">兴趣讨论区</a></li>
+          <li><a href="#boards">经验与教程区</a></li>
+          <li><a href="#boards">提问与求助区</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>使用帮助</h4>
+        <ul>
+          <li><a href="#guide">新人指引</a></li>
+          <li><a href="#rules">社区规则</a></li>
+          <li><a href="#tips">参与指南</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>站务信息</h4>
+        <ul>
+          <li><a href="#rules">规则说明</a></li>
+          <li><a href="#faq">反馈渠道</a></li>
+          <li><a href="#tips">内容规范</a></li>
+          <li><a href="#boards">版块申请</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>本页面为社区信息入口说明页，具体版块设置与规则以站内公告为准。</span>
+      <span>请遵守社区规则，理性交流。</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var links = document.querySelectorAll('nav.mainnav a');
+    links.forEach(function(link){
+      link.addEventListener('click', function(){
+        links.forEach(function(l){ l.classList.remove('active'); });
+        link.classList.add('active');
+      });
+    });
+  })();
+</script>
+
+</body>
+  </html>
